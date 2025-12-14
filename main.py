@@ -105,7 +105,7 @@ def show_result(call):
 
 
 
-@app.route(f"/{BOT_TOKEN}", methods=["POST"])
+@app.route(f"/{bot_token}", methods=["POST"])
 def webhook():
     raw = request.get_data().decode("utf-8")
     print(f"📦 Raw update: {raw}")  # Log the full payload
