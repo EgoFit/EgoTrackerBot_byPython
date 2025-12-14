@@ -1,0 +1,6 @@
+pyTelegramBotAPI
+python-dotenv
+regex
+Flask
+gunicorn
+mysql-connector-python
