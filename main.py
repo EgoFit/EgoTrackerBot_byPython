@@ -54,8 +54,12 @@ def save_password(message):
     user, result = dataentery.select_user(phone, password)
     
     
-    user_name = message.from_user.first_name if user[1] == None or user[1] == '' else user[1]
-    user_family = message.from_user.last_name if user[2] == None or user[2] == '' else user[2]
+    try:
+        user_name = message.from_user.first_name if user[1] == None or user[1] == '' else user[1]
+        user_family = message.from_user.last_name if user[2] == None or user[2] == '' else user[2]
+    except:
+        bot.send_message(message.chat.id, 'مشخصات شما در دیتابیس ما ثبت نشده است لطفا به ادمین پیام دهید \n @MSc_Shahidi')
+        user_state.clear()
     
     user_state[uid]['user_name'] = user_name
     user_state[uid]['user_family'] = user_family
